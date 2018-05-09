@@ -10,12 +10,13 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                          password:              "foo",
                                          password_confirmation: "bar" } }
     end
-    assert_template 'users/new'
-    assert_select 'div#<CSS id for error explanation>'
-    assert_select 'div.<CSS class for field with error>'
+   assert_template 'users/new'
+    assert_select 'div#error_explanation'
+    assert_select 'div.alert'  
     
  
 end
+
     
     
   test "valid signup information" do
@@ -28,7 +29,7 @@ end
     end
     follow_redirect!
     assert_template 'users/show'
-     assert_not flash.empty? 
+    assert_not flash.empty? 
   end
 end
 
