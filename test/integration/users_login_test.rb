@@ -49,10 +49,12 @@ test "login with valid information followed by logout" do
   end  
   
   
-  test "login with remembering" do
+  
+ #9.28じゃなくて９.２５にしたら一応エラーは消えたようだ.28に戻す
+   test "login with remembering" do
     log_in_as(@user, remember_me: '1')
     assert_equal cookies['remember_token'], assigns(:user).remember_token
-   end
+  end
 
   test "login without remembering" do
     # クッキーを保存してログイン
